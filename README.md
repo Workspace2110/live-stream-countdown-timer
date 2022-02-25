@@ -5,6 +5,7 @@
 ### How to use
 
 * On Local: open `countdown_timer\index.html`
+* On online: [live stream countdown timer](https://workspace2110.github.io/live-stream-countdown-timer/)
 
 ### UI description
   1. UI preview
