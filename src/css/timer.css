@@ -21,23 +21,45 @@
     -webkit-text-stroke: 2px black;
     position: relative;
     left: -120px;
+    bottom: 10px;
 }
 
 .show-time {
     font-size: 60px;
     position: relative;
     font-family: 'Press Start 2P', cursive;
-    bottom: -80px;
+    bottom: 40px;
     left: -15px;
     color: #ffffff;
     -webkit-text-stroke: 2px black;
 }
 
+.show-elapsed-time-title {
+    font-size: 60px;
+    position: relative;
+    font-family: 'Reggae One', cursive;
+    bottom: 60px;
+    left: -140px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+}
+
+.show-elapsed-time {
+    font-size: 60px;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+    bottom: 60px;
+    left: -15px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+}
+
+
 .new-window-show-time-title {
     font-size: 60px;
     position: absolute;
     font-family: 'Reggae One', cursive;
-    top: 5px;
+    top: 10px;
     left: 10px;
     color: #ffffff;
     -webkit-text-stroke: 2px black;
@@ -54,7 +76,27 @@
     font-size: 60px;
     position: absolute;
     font-family: 'Press Start 2P', cursive;
-    bottom: 10px;
+    bottom: 135px;
+    left: 30px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+}
+
+.new-window-show-elapsed-time-title {
+    font-size: 60px;
+    position: absolute;
+    font-family: 'Reggae One', cursive;
+    bottom: 75px;
+    left: 10px;
+    color: #ffffff;
+    -webkit-text-stroke: 2px black;
+}
+
+.new-window-show-elapsed-time {
+    font-size: 60px;
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    bottom: 0px;
     left: 30px;
     color: #ffffff;
     -webkit-text-stroke: 2px black;

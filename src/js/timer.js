@@ -2,6 +2,8 @@
 let m_timer;
 // タイマーウィンドウを格納する変数の宣言
 let timerWindow = null;
+// 経過時間を格納する変数の宣言
+let elapsed_time = 0;
 
 // カウントダウン関数を1000ミリ秒毎に呼び出す関数
 function startCountdown() {
@@ -40,10 +42,11 @@ function countdown() {
 
         setInputTime(hour, min, sec);
         writeTimer(hour * 3600 + min * 60 + sec - 1);
+        writeElapsedTimer(++elapsed_time);
     }
 }
 
-// 残り時間を書き出す関数
+// 残り時間を書き出する関数
 function writeTimer(second) {
     let i_second = parseInt(second);
 
@@ -55,6 +58,13 @@ function writeTimer(second) {
         setInputTime(show_time.hours, show_time.mins, show_time.secs);
         setShowTime(show_time.hours, show_time.mins, show_time.secs);
     }
+}
+
+// 経過時間を書き出する関数
+function writeElapsedTimer(secound) {
+    let i_second = parseInt(secound);
+    let show_elapsed_time = getShowTime(i_second);
+    setShowElapsedTime(show_elapsed_time.hours, show_elapsed_time.mins, show_elapsed_time.secs);
 }
 
 // フォームを初期状態に戻す（リセット）関数
@@ -178,17 +188,15 @@ function initBaseHtmlHeader(title) {
 
 // HTMLボディを初期化する関数
 function initTimerWindowHtmlBody() {
-    let set_time = getInputTime();
-    let i_total_second = set_time.hour * 3600 + set_time.min * 60 + set_time.sec;
-    let input_time = getShowTime(i_total_second);
-    let show_hour = input_time.hours.toString().padStart(3, "0");
-    let show_minute = input_time.mins.toString().padStart(2, "0");
-    let show_second = input_time.secs.toString().padStart(2, "0");
+    let show_time = document.getElementById("show_time").innerHTML
+    let show_elapsed_time = document.getElementById("show_elapsed_time").innerHTML
 
     let html_body = '<body class="show-time-background">';
     html_body += '<div>';
     html_body += '<h1 id="" class="display-4 new-window-show-time-title">剩餘時間</h1>';
-    html_body += '<h1 id="new_window_show_time" class="display-4 new-window-show-time">' + show_hour + ":" + show_minute + ":" + show_second+'</h1>';
+    html_body += '<h1 id="new_window_show_time" class="display-4 new-window-show-time">' + show_time + '</h1>';
+    html_body += '<h1 id="" class="display-4 new-window-show-elapsed-time-title">已開台時間</h1>';
+    html_body += '<h1 id="new_window_show_elapsed_time" class="display-4 new-window-show-elapsed-time">' + show_elapsed_time + '</h1>';
     html_body += '</div>';
     html_body += '</body>';
 
@@ -218,6 +226,12 @@ function openTimerWindow() {
     }
 }
 
+// 経過時間をクリーン関数
+function cleanElapsedTime() {
+    elapsed_time = 0;
+    setShowElapsedTime(0, 0, 0);
+}
+
 function setInputTime(hours, mins, secs) {
     document.getElementById("input_hour").value = hours;
     document.getElementById("input_minute").value = mins;
@@ -234,6 +248,20 @@ function setShowTime(hours, mins, secs) {
     if(timerWindow) {
         if(!timerWindow.closed) {
             timerWindow.document.getElementById("new_window_show_time").innerHTML = show_hour + ":" + show_minute + ":" + show_second;
+        }
+    }
+}
+
+function setShowElapsedTime(hours, mins, secs) {
+    let show_hour = hours.toString().padStart(3, "0");
+    let show_minute = mins.toString().padStart(2, "0");
+    let show_second = secs.toString().padStart(2, "0");
+
+    document.getElementById("show_elapsed_time").innerHTML = show_hour + ":" + show_minute + ":" + show_second;
+
+    if(timerWindow) {
+        if(!timerWindow.closed) {
+            timerWindow.document.getElementById("new_window_show_elapsed_time").innerHTML = show_hour + ":" + show_minute + ":" + show_second;
         }
     }
 }

@@ -36,6 +36,8 @@
             <div class="col-6 p-5 show-time-background">
                 <h1 id="" class="display-4 show-time-title">剩餘時間</h1>
                 <h1 id="show_time" class="display-4 show-time">000:00:00</h1>
+                <h1 id="" class="display-4 show-elapsed-time-title">已開台時間</h1>
+                <h1 id="show_elapsed_time" class="display-4 show-elapsed-time">000:00:00</h1>
             </div>
             <div class="col-3"></div>
         </div>
@@ -81,8 +83,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="mt-5">
-                <input id="test_btn" typw="button" value="開啟新視窗" class="btn btn-primary" onclick="openTimerWindow()">
+            <div class="col-6">
+                <div class="mt-5">
+                    <input id="test_btn" type="button" value="開啟新視窗" class="btn btn-primary col-6" onclick="openTimerWindow()">    
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mt-5">
+                    <input id="test_btn" type="button" value="清除已開台時間" class="btn btn-danger col-6" onclick="cleanElapsedTime()">    
+                </div>
             </div>
         </div>
     </div>
