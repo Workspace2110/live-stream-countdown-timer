@@ -10,6 +10,11 @@ function startCountdown() {
     document.getElementById("start_btn").disabled = true;
     document.getElementById("stop_btn").disabled = false;
     document.getElementById("reset_btn").disabled = true;
+
+    document.getElementById("input_elapsed_hour").disabled = true;
+    document.getElementById("input_elapsed_minute").disabled = true;
+    document.getElementById("input_elapsed_second").disabled = true;
+
     m_timer = setInterval("countdown()", 1000);
 }
 
@@ -18,6 +23,11 @@ function stopCountdown() {
     document.getElementById("start_btn").disabled = false;
     document.getElementById("stop_btn").disabled = true;
     document.getElementById("reset_btn").disabled = false;
+
+    document.getElementById("input_elapsed_hour").disabled = false;
+    document.getElementById("input_elapsed_minute").disabled = false;
+    document.getElementById("input_elapsed_second").disabled = false;
+
     clearInterval(m_timer);
 }
 
@@ -94,7 +104,7 @@ function timeUp() {
     }
 }
 
-// ダイナミックアップデートタイマー表示時間関数
+// ダイナミックアップデートタイマー表示残り時間関数
 function dynamicUpdateShowTime() {
     let set_time = getInputTime();
 
@@ -102,6 +112,16 @@ function dynamicUpdateShowTime() {
     let show_time = getShowTime(i_total_second);
 
     setShowTime(show_time.hours, show_time.mins, show_time.secs);
+}
+
+// ダイナミックアップデートタイマー表示経過時間関数
+function dynamicUpdateElapsedTime() {
+    let set_time = getInputElapsedTime();
+
+    elapsed_time = set_time.hour * 3600 + set_time.min * 60 + set_time.sec;
+    let show_time = getShowTime(elapsed_time);
+
+    setShowElapsedTime(show_time.hours, show_time.mins, show_time.secs);
 }
 
 // 1時間を追加する関数
@@ -230,6 +250,7 @@ function openTimerWindow() {
 function cleanElapsedTime() {
     elapsed_time = 0;
     setShowElapsedTime(0, 0, 0);
+    setInputElapsedTime(0, 0, 0);
 }
 
 function setInputTime(hours, mins, secs) {
@@ -266,10 +287,28 @@ function setShowElapsedTime(hours, mins, secs) {
     }
 }
 
+function setInputElapsedTime(hours, mins, secs) {
+    document.getElementById("input_elapsed_hour").value = parseInt(hours);
+    document.getElementById("input_elapsed_minute").value = parseInt(mins);
+    document.getElementById("input_elapsed_second").value = parseInt(secs);
+}
+
 function getInputTime() {
     let hour = normalizeInputNumberValue(document.getElementById("input_hour").value, 0);
     let min = normalizeInputNumberValue(document.getElementById("input_minute").value, 0);
     let sec = normalizeInputNumberValue(document.getElementById("input_second").value, 0);
+
+    return {
+        hour,
+        min,
+        sec
+    }
+}
+
+function getInputElapsedTime() {
+    let hour = normalizeInputNumberValue(document.getElementById("input_elapsed_hour").value, 0);
+    let min = normalizeInputNumberValue(document.getElementById("input_elapsed_minute").value, 0);
+    let sec = normalizeInputNumberValue(document.getElementById("input_elapsed_second").value, 0);
 
     return {
         hour,

@@ -26,10 +26,12 @@
 </head>
 
 <body>
+    <!-- Header -->
     <div class="container-fluid p-3 text-white text-center" style="background-color: #000000;">
         <h1 class="fw-bold">抖內計時器</h1>
     </div>
 
+    <!-- Show Time Card -->
     <div id="show_time_card" class="container mt-5  text-center">
         <div class="row">
             <div class="col-3"></div>
@@ -45,6 +47,7 @@
 
     <div class="container">
         <div class="row">
+            <!-- Control panel -->
             <div class="col-6">
                 <div class="mt-5">
                     <input id="input_hour" type="number" value="0" max=999 min="0" onchange="dynamicUpdateShowTime()">時
@@ -75,19 +78,31 @@
                 </div>
             </div>
 
+            <!-- Setting panel -->
             <div class="col-6">
                 <div class="mt-5">
                     每 <input id="unit_time" type="number" value="10" min="1" max="1440"> 分鐘
                     <input id="unit_money" type="number" value="200" min="1" max="10000">元
                 </div>
+                <div class="mt-2">
+                    <input id="input_elapsed_hour" type="number" value="0" max=999 min="0"
+                        onchange="dynamicUpdateElapsedTime()">時
+                    <input id="input_elapsed_minute" type="number" value="0" max="59" min="0"
+                        onchange="dynamicUpdateElapsedTime()">分
+                    <input id="input_elapsed_second" type="number" value="0" max="59" min="0"
+                        onchange="dynamicUpdateElapsedTime()">秒
+                </div>
             </div>
         </div>
         <div class="row">
+            <!-- Open new window button -->
             <div class="col-6">
                 <div class="mt-5">
                     <input id="test_btn" type="button" value="開啟新視窗" class="btn btn-primary col-6" onclick="openTimerWindow()">    
                 </div>
             </div>
+
+            <!-- Clean elapsed hour button -->
             <div class="col-6">
                 <div class="mt-5">
                     <input id="test_btn" type="button" value="清除已開台時間" class="btn btn-danger col-6" onclick="cleanElapsedTime()">    
@@ -96,6 +111,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="text-center text-white fixed-bottom" style="background-color: #000000;">
         <!-- Grid container -->
         <div class="container p-2"></div>
