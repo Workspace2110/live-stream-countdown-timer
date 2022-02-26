@@ -5,7 +5,7 @@
 ### How to use
 
 * On Local: open `countdown_timer\index.html`
-* On Oline open [live-stream-countdown-timer](https://workspace2110.github.io/live-stream-countdown-timer/)
+* On Oline: open [live-stream-countdown-timer](https://workspace2110.github.io/live-stream-countdown-timer/)
 
 ### UI description
   1. UI preview
