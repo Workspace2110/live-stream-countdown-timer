@@ -5,7 +5,6 @@
 ### How to use
 
 * On Local: open `countdown_timer\index.html`
-* On online: [live stream countdown timer](https://workspace2110.github.io/live-stream-countdown-timer/)
 
 ### UI description
   1. UI preview
@@ -34,6 +33,11 @@
         ![conver money to time rate field](./utils/readme_img/convert_rate.png)
   13. Clean elapsed time button 
         ![clean elapsed time button](./utils/readme_img/clean_elapsed_time.png)
+  14. Stop Time to modifed elapsed time
+        ![Stop Time to modifed elapsed time](./utils/readme_img/Modified_elapsed_time.png)
+  15. Change elapsed time 
+        ![Change elapsed time](./utils/readme_img/Modified_elapsed_time2.png)
+
 
 ### Background exchange
 
