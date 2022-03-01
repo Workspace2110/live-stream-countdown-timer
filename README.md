@@ -54,7 +54,7 @@
 | Feature Name | Status | Fix Version |
 | :----------: | :----: | :---------: |
 | Basic features | Done | 1.0.0~ |
-| Elapsed time count up | verification | 1.1.0~ |
+| Elapsed time count up | D | 1.1.0~ |
 
 ## Contributing
 
